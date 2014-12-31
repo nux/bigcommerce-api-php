@@ -641,9 +641,10 @@ class Client
 	 *
 	 * @return int
 	 */
-	public static function getOrdersCount()
+	public static function getOrdersCount($filter=false)
 	{
-		return self::getCount('/orders/count');
+		$filter = Filter::create($filter);
+		return self::getCount('/orders/count' . $filter->toQuery());
 	}
 
 	/**
