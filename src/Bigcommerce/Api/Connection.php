@@ -83,6 +83,7 @@ class Connection
 		$this->curl = curl_init();
 		curl_setopt($this->curl, CURLOPT_HEADERFUNCTION, array($this, 'parseHeader'));
 		curl_setopt($this->curl, CURLOPT_WRITEFUNCTION, array($this, 'parseBody'));
+		curl_setopt($this->curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
 
 		// Bigcommerce only supports RC4-SHA (rsa_rc4_128_sha)
 		$this->setCipher('rsa_rc4_128_sha');
